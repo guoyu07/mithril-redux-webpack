@@ -24,7 +24,7 @@ var config = {
   module: {
     loaders: [
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-      { test: /\.es6$/, loader: 'babel', query: {cacheDirectory: true, presets: ['es2015']} }
+      { test: /\.es6$/, loader: 'babel' }
     ]
   },
   plugins: [
