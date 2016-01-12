@@ -1,12 +1,6 @@
 import m from 'mithril'
+import HelloComponent from 'modules/hello'
 
-let c = {}
-c.controller = function (args) {
-
-}
-
-c.view = function (ctrl, args) {
-	return m('h1', 'Hello World')
-}
-
-m.mount(document.body, m.component(c))
+m.route(document.body, '/', {
+  '/': m.component(HelloComponent)
+})
