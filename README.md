@@ -6,7 +6,7 @@ This is for development only. I try to be as unopinionated as possible, so inclu
 * Babel 6
 * Mithril
 * Redux
-* Lodash
+* Lodash 4
 
 ### To start
 
