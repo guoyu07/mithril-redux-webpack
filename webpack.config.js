@@ -1,15 +1,18 @@
-var path = require('path')
-var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-var rootPath = path.join(__dirname, '/src')
+const rootPath = path.join(__dirname, '/src')
 
-var config = {
+const config = {
   devtool: 'eval',
   context: rootPath,
   resolve: {
     extensions: ['', '.es6', '.js'],
     root: [rootPath]
+  },
+  resolveLoader: {
+    root: [path.resolve(__dirname, 'node_modules')]
   },
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
@@ -24,7 +27,8 @@ var config = {
   module: {
     loaders: [
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
-      { test: /\.es6$/, loader: 'babel' }
+      { test: /\.(gif|jpg|jpeg|png)/, loader: 'url-loader' },
+      { test: /\.es6$/, loader: 'babel-loader', query: {plugins: ['transform-runtime']} }
     ]
   },
   plugins: [
